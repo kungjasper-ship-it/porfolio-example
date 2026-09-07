@@ -14,7 +14,7 @@ Hi! I'm **宮浩翔**, a first-year university student who is interested in tech
 
 ## 🌐 Live Website
 
-👉 **[View My Portfolio](https://kungjasper-ship-it.github.io/my-portfolio/)**
+👉 **[View My Portfolio]([https://kungjasper-ship-it.github.io/my-portfolio/](https://github.com/kungjasper-ship-it))**
 
 ---
 
