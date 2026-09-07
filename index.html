@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>宮浩翔｜個人作品集</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Noto Sans TC", sans-serif;
+      background: #0b0d12;
+      color: #f5f5f5;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(11, 13, 18, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid #242832;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      color: #aaa;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    section {
+      padding: 100px 8%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 120px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid #444;
+      border-radius: 30px;
+      color: #aaa;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: 1.05;
+      letter-spacing: -4px;
+      margin-bottom: 25px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #ffffff, #777);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #aaa;
+      max-width: 650px;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      padding: 12px 22px;
+      border-radius: 8px;
+      background: white;
+      color: #111;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: white;
+      border: 1px solid #444;
+    }
+
+    .section-title {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .section-description {
+      color: #888;
+      margin-bottom: 45px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .about p {
+      color: #aaa;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      padding: 8px 14px;
+      border: 1px solid #333;
+      border-radius: 6px;
+      color: #ccc;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      border: 1px solid #292d36;
+      border-radius: 14px;
+      padding: 25px;
+      background: #11141b;
+      transition: 0.25s;
+    }
+
+    .project:hover {
+      transform: translateY(-6px);
+      border-color: #555;
+    }
+
+    .project-number {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 35px;
+    }
+
+    .project h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .project p {
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .project a {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .timeline {
+      border-left: 1px solid #333;
+      padding-left: 30px;
+    }
+
+    .timeline-item {
+      margin-bottom: 35px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      left: -36px;
+      top: 9px;
+    }
+
+    .timeline-item span {
+      color: #777;
+      font-size: 14px;
+    }
+
+    .timeline-item h3 {
+      margin: 5px 0;
+    }
+
+    .contact {
+      text-align: center;
+      padding-bottom: 140px;
+    }
+
+    .contact h2 {
+      font-size: clamp(40px, 7vw, 75px);
+      line-height: 1.1;
+      margin-bottom: 25px;
+    }
+
+    .contact p {
+      color: #888;
+      margin-bottom: 30px;
+    }
+
+    footer {
+      border-top: 1px solid #222;
+      padding: 30px 8%;
+      color: #666;
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      nav ul {
+        display: none;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo"Jasper.</div>
+
+```
+<ul>
+  <li><a href="#about">關於我</a></li>
+  <li><a href="#projects">作品</a></li>
+  <li><a href="#journey">學習歷程</a></li>
+  <li><a href="#contact">聯絡</a></li>
+</ul>
+```
+
+  </nav>
+
+  <!-- Hero -->
+
+  <section class="hero">
+    <div class="hero-content">
+
+```
+  <div class="tag">FIRST-YEAR STUDENT · CREATIVE · BUILDER</div>
+
+  <h1>
+    我正在打造<br>
+    <span class="gradient">自己的未來。</span>
+  </h1>
+
+  <p>
+    嗨，我是「宮浩翔」，目前是一名大一學生。
+    我喜歡設計、科技與解決問題，正在透過每一個專案
+    累積自己的能力，並把想法變成真正能使用的作品。
+  </p>
+
+  <div class="buttons">
+    <a class="button" href="#projects">查看我的作品</a>
+    <a class="button secondary" href="#contact">聯絡我</a>
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- About -->
+
+  <section id="about">
+
+```
+<h2 class="section-title">關於我</h2>
+
+<p class="section-description">
+  現在的我還在學習，但我希望四年後能用作品證明自己的能力。
+</p>
+
+<div class="about">
+
+  <div>
+    <p>
+      我目前就讀大學一年級，對數位產品、設計與科技充滿興趣。
+      我相信學習不只是取得分數，更重要的是能不能把知識
+      實際運用在問題上。
+    </p>
+
+    <br>
+
+    <p>
+      我的目標是在大學四年間持續累積專案經驗，
+      從基礎開始學習程式設計、UI/UX、網頁開發與產品思維，
+      最終建立一個能代表自己的作品集。
+    </p>
+  </div>
+
+  <div>
+    <h3>目前正在學習</h3>
+
+    <br>
+
+    <div class="skills">
+      <span class="skill">HTML</span>
+      <span class="skill">CSS</span>
+      <span class="skill">JavaScript</span>
+      <span class="skill">Python</span>
+      <span class="skill">UI / UX</span>
+      <span class="skill">Git / GitHub</span>
+      <span class="skill">Problem Solving</span>
+      <span class="skill">Teamwork</span>
+    </div>
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- Projects -->
+
+  <section id="projects">
+
+```
+<h2 class="section-title">我的作品</h2>
+
+<p class="section-description">
+  目前還在累積作品，但每一個作品都是下一個版本的起點。
+</p>
+
+<div class="projects">
+
+  <div class="project">
+    <div class="project-number">01 / WEB</div>
+
+    <h3>個人作品集網站</h3>
+
+    <p>
+      使用 HTML、CSS 製作的個人作品集網站，
+      用來整理我的學習歷程與未來作品。
+    </p>
+
+    <a href="#">View Project →</a>
+  </div>
+
+
+  <div class="project">
+    <div class="project-number">02 / DESIGN</div>
+
+    <h3>校園活動企劃</h3>
+
+    <p>
+      嘗試從使用者需求出發，規劃一個校園活動，
+      包含活動流程、視覺方向與使用者體驗。
+    </p>
+
+    <a href="#">View Project →</a>
+  </div>
+
+
+  <div class="project">
+    <div class="project-number">03 / FUTURE</div>
+
+    <h3>Coming Soon</h3>
+
+    <p>
+      下一個作品正在製作中。
+      我希望未來能在這裡展示真正完成的專案。
+    </p>
+
+    <a href="#contact">Stay Tuned →</a>
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- Journey -->
+
+  <section id="journey">
+
+```
+<h2 class="section-title">我的學習歷程</h2>
+
+<p class="section-description">
+  四年後，希望回頭看這個網站時，可以看到一個完全不同的自己。
+</p>
+
+<div class="timeline">
+
+  <div class="timeline-item">
+    <span>2026 · YEAR 1</span>
+    <h3>建立基礎</h3>
+    <p>
+      學習程式設計、網頁開發、GitHub 與基本設計能力，
+      開始建立自己的第一批作品。
+    </p>
+  </div>
+
+  <div class="timeline-item">
+    <span>2027 · YEAR 2</span>
+    <h3>開始實戰</h3>
+    <p>
+      參與更多課程專案、團隊合作與競賽，
+      嘗試解決真正的問題。
+    </p>
+  </div>
+
+  <div class="timeline-item">
+    <span>2028 · YEAR 3</span>
+    <h3>建立專業</h3>
+    <p>
+      尋找實習機會，累積產業經驗，
+      並開始專注於自己真正有興趣的領域。
+    </p>
+  </div>
+
+  <div class="timeline-item">
+    <span>2029 · YEAR 4</span>
+    <h3>Ready for the world</h3>
+    <p>
+      用完整的作品集、專案經驗與實習成果，
+      開始尋找第一份真正屬於自己的工作。
+    </p>
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- Contact -->
+
+  <section id="contact" class="contact">
+
+```
+<h2>
+  Let's build<br>
+  something great.
+</h2>
+
+<p>
+  如果你想了解我的作品、合作或未來的可能性，歡迎聯絡我。
+</p>
+
+<div class="buttons" style="justify-content:center;">
+  <a class="button" href="mailto:kungjasper@gmail.com">
+    Email Me
+  </a>
+
+  <a class="button secondary"
+     href="https://github.com/"
+     target="_blank">
+    GitHub
+  </a>
+</div>
+```
+
+  </section>
+
+  <footer>
+    © 2026 YOUR NAME. Built with HTML & CSS.
+  </footer>
+
+</body>
+</html>
